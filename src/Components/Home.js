@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 const Description = styled.p`
         font-family: raleway;
+        margin-bottom: 70px;
     `
     const Title=styled.h1`
     font-family:cinzel;
