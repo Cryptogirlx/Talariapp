@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components";
 
 function GodCard(props) {
   const [isOver, setIsOver] = useState(false);
+  const [move, setMove] = useState("350px");
 
   const BgDarken = keyframes`
     from {
@@ -62,16 +63,13 @@ function GodCard(props) {
     width: 300px;
     border: none;
     margin: 16px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
     padding: 16px;
     text-decoration: none;
     cursor: pointer;
     //animation: example 5s linear 2s infinite alternate;
     animation: ${(props) => props.isOver && `${BgDarken} 1s ease-out`};
     //${BgDarken} 1s ease-out;
-    /* &:hover {
+    &:hover {
       background-image: linear-gradient(
           to bottom,
           rgba(19, 21, 21, 0) 0%,
@@ -79,11 +77,10 @@ function GodCard(props) {
           rgba(19, 21, 21, 0.9) 100%
         ),
         url(${props.img});
-    } */
+    }
   `;
 
   const CardTitle = styled.h2`
-    text-shadow: 0px 0px 10px #000;
     font-family: cinzel;
     letter-spacing: 0.3px;
     color: #fff;
@@ -93,29 +90,30 @@ function GodCard(props) {
   const PowerText = styled.p`
     font-family: raleway;
     color: #fff;
-    text-shadow: 0px 0px 10px #000;
     margin: 0px auto;
     font-weight: 500;
   `;
 
   const triggerOn = () => {
     console.log(`${props.name} on`);
-    setIsOver(true);
+    // setIsOver(true);
+    setMove("300px");
   };
   const triggerOff = () => {
     console.log(`${props.name} off`);
-    setIsOver(false);
+    // setIsOver(false);
+    setMove("350px");
   };
 
   return (
     <div className="GodCard">
       <Link to={`/contact/${props.name}`} style={{ textDecoration: "none" }}>
         <CardImage
-        //   isOver={isOver}
-        //   onMouseEnter={triggerOn}
-        //   onMouseLeave={triggerOff}
+          //   isOver={isOver}
+          onMouseEnter={triggerOn}
+          onMouseLeave={triggerOff}
         >
-          <div>
+          <div style={{ marginTop: `${move}` }}>
             <CardTitle>{props.name}</CardTitle>
             <PowerText>{props.power}</PowerText>
           </div>

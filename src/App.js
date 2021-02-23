@@ -8,7 +8,7 @@ import Selector from "./Pages/Selector";
 
 import GetADuck from "./Components/RandomDuck";
 //data
-import { GodsArray } from "./Components/InternalData.js";
+import { GodsArray } from "./data/InternalData";
 //images
 import Home from "./Pages/Home";
 import hermes from "./Images/hermes.gif";

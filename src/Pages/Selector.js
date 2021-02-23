@@ -87,7 +87,7 @@ class Selector extends React.Component {
     this.setState({ value: event.value });
     // we don't really need the state in this componenet, i thinks
     this.props.onSearch(event.value);
-    console.log("val", this.state.value);
+    //console.log("val", this.state.value);
   }
 
   render() {
@@ -111,33 +111,33 @@ class Selector extends React.Component {
     return (
       <div style={{ backgroundColor: `${colors.normalBg}`, height: "100%" }}>
         <H2>What do you need help with?</H2>
-        <form>
-          <div style={{ width: "30%", margin: "auto" }}>
-            <Select
-              styles={colourStyles}
-              theme={(theme) => ({
-                ...theme,
-                borderRadius: 0,
 
-                colors: {
-                  ...theme.colors,
-                  primary: "gray",
-                  neutral0: `${colors.normalBg}`, //bg
-                  neutral20: "lightgray", //farme
-                  primary25: "#474747", //hover
-                  neutral80: "gray", //text in the select
-                  primary50: `${colors.green}`, //down
-                  neutral50: "gray", //  text not actoive inside
-                  neutral60: "gray", //V
-                  neutral40: "lightgray", //some kindof click on V
-                  neutral30: "lightgray", //hover on the frame
-                },
-              })}
-              options={optionsSorted}
-              onChange={(event) => this.handleChange(event)}
-            />
-          </div>
-        </form>
+        <div style={{ width: "282px", margin: "auto" }}>
+          <Select
+            styles={colourStyles}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 0,
+
+              colors: {
+                ...theme.colors,
+                primary: "gray",
+                neutral0: `${colors.normalBg}`, //bg
+                neutral20: "lightgray", //farme
+                primary25: "#474747", //hover
+                neutral80: "gray", //text in the select
+                primary50: `${colors.green}`, //down
+                neutral50: "gray", //  text not actoive inside
+                neutral60: "gray", //V
+                neutral40: "lightgray", //some kindof click on V
+                neutral30: "lightgray", //hover on the frame
+              },
+            })}
+            options={optionsSorted}
+            onChange={(event) => this.handleChange(event)}
+          />
+        </div>
+
         <GodsList godattributes={this.props.godattributes} />
       </div>
     );

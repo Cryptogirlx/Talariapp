@@ -4,7 +4,7 @@ export const colors = {
   homeBg: "#100019",
   normalBg: "#131515",
   loader: "#231f20",
-  light: "",
+  light: "#fff",
   darkGary: "",
   LightGray: "",
 };
