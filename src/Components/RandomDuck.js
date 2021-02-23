@@ -31,10 +31,7 @@ function GetADuck(props) {
 
   return (
     <StyleDiv>
-      <Title>
-        Congrats, your request has been heard by the gods, and they have
-        replied:{" "}
-      </Title>
+      <Title>Congrats, you have received a reply: </Title>
 
       <RuningText>"{props.answer.magic.answer}."</RuningText>
     </StyleDiv>

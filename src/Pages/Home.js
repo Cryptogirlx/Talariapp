@@ -34,7 +34,7 @@ export class Home extends Component {
         <MainTitle>TalariApp</MainTitle>
         <Description>
           <h2 style={{ margin: "13px auto 20px auto" }}>
-            Making a request to the gods is easier than ever!
+            Asking the gods is easier than ever!
           </h2>{" "}
           <p>All it takes is 3 simple steps:</p>
           <ul style={{ listStyleType: "none" }}>
@@ -44,12 +44,12 @@ export class Home extends Component {
               unique needs!
             </Li>
             <Li>
-              3. Simply write a message to your god or goddess, select an
-              optional sacrifice, and we will take care of the rest!
+              3. Simply write a message to your god or goddess and we will take
+              care of the rest!
             </Li>
           </ul>
           <Link to="/select">
-            <Button type="submit" value="Pray Now" />{" "}
+            <Button type="submit" value="Ask a question" />{" "}
           </Link>
         </Description>
       </HomeBgWrap>

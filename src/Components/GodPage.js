@@ -83,6 +83,9 @@ function GodPage(props) {
         </FormLabels>
         <br />
 
+        <Description>
+          {props.god.name} is very busy, ask only a yes or no question
+        </Description>
         <Link to="/ducksess">
           {" "}
           <Button
