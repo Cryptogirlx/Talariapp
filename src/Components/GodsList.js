@@ -1,24 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
-import GodCard from './GodCard';
+import React from "react";
+import styled from "styled-components";
+import { colors } from "../utils/colors";
+import GodCard from "./GodCard";
 
-
-function GodsList (props) {
-
-const Container = styled.div`
+function GodsList(props) {
+  const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #131515;
-`
+    background-color: ${colors.normalBg};
+  `;
 
-    return(
-        <Container>
-         {props.godattributes.map(god => <GodCard name={god.name} img={god.img}
-          symbol={god.symbol} power={god.power} description={god.description}
-         />)}
-        </Container>
-    )
+  return (
+    <Container>
+      {props.godattributes.map((god) => (
+        <GodCard
+          name={god.name}
+          img={god.img}
+          symbol={god.symbol}
+          power={god.power}
+          description={god.description}
+        />
+      ))}
+    </Container>
+  );
 }
 
-export default GodsList
+export default GodsList;

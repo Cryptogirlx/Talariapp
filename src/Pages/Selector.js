@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Select from "react-select";
-import { GodsArray } from "./InternalData";
+import { GodsArray } from "../data/InternalData";
 import GodsList from "../Components/GodsList";
+import { colors } from "../utils/colors";
 
-const options = [
+const selectOptions = [
   { value: "war", label: "war" },
   { value: "crafts", label: "crafts" },
   { value: "wisdom", label: "wisdom" },
@@ -60,8 +61,8 @@ function dynamicSort(property) {
   };
 }
 
-let optionsSorted = options.sort(dynamicSort("label"));
-console.log("options", optionsSorted);
+let optionsSorted = selectOptions.sort(dynamicSort("label"));
+//console.log("options", optionsSorted);
 
 //console.log("gods", GodsArray)
 
@@ -86,59 +87,57 @@ class Selector extends React.Component {
     this.setState({ value: event.value });
     // we don't really need the state in this componenet, i thinks
     this.props.onSearch(event.value);
-    console.log("val", this.state.value);
+    //console.log("val", this.state.value);
   }
 
   render() {
-    console.log(this.props);
-
-    const customStyles = {
-      width: "50%",
-      backgroundColor: "#131515",
-      margin: "auto",
-
-      // control: () => ({
-      //   // none of react-select's styles are passed to <Control />
-      //   width: 200,
-      // }),
-    };
     const H2 = styled.h2`
       font-family: cinzel;
       font-size: 44px;
       letter-spacing: 0.16px;
-      margin: 24px auto;
+      margin: 24px auto 10px;
       text-align: center;
-      color: #9effea;
+      color: ${colors.green};
     `;
-    return (
-      <div style={{ backgroundColor: "#131515", height: "100%" }}>
-        <H2>What do you need help with?</H2>
-        <form>
-          <div style={{ width: "30%", margin: "auto" }}>
-            <Select
-              theme={(theme) => ({
-                ...theme,
-                borderRadius: 0,
-                colors: {
-                  ...theme.colors,
-                  primary25: "gray",
-                  primary: "black",
-                  neutral80: "gray",
-                  neutral5: "lightgray",
-                },
-              })}
-              styles={customStyles}
-              options={optionsSorted}
-              onChange={(event) => this.handleChange(event)}
-            />
-          </div>
 
-          {/* the top one works!!!! */}
-          {/* <Select options={optionsSorted}   onChange={(event)=>{
-               console.log("event", event.value); 
-               this.setState({value:event})
-              }} /> */}
-        </form>
+    const colourStyles = {
+      option: (styles) => {
+        return {
+          ...styles,
+          color: `${colors.light}`,
+        };
+      },
+    };
+    return (
+      <div style={{ backgroundColor: `${colors.normalBg}`, height: "100%" }}>
+        <H2>What do you need help with?</H2>
+
+        <div style={{ width: "282px", margin: "auto" }}>
+          <Select
+            styles={colourStyles}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 0,
+
+              colors: {
+                ...theme.colors,
+                primary: "gray",
+                neutral0: `${colors.normalBg}`, //bg
+                neutral20: "lightgray", //farme
+                primary25: "#474747", //hover
+                neutral80: "gray", //text in the select
+                primary50: `${colors.green}`, //down
+                neutral50: "gray", //  text not actoive inside
+                neutral60: "gray", //V
+                neutral40: "lightgray", //some kindof click on V
+                neutral30: "lightgray", //hover on the frame
+              },
+            })}
+            options={optionsSorted}
+            onChange={(event) => this.handleChange(event)}
+          />
+        </div>
+
         <GodsList godattributes={this.props.godattributes} />
       </div>
     );

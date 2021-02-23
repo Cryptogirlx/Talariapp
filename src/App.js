@@ -1,19 +1,20 @@
 import React from "react";
 import axios from "axios";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 
-import { Route, BrowserRouter as Router, Link } from "react-router-dom";
+//pages
+import Message from "./Pages/Message";
+import Selector from "./Pages/Selector";
 
-//Components
-import Message from "./Components/Message/Message";
-import Selector from "./Components/Selector";
-import { GodsArray } from "./Components/InternalData.js";
-import GodsList from "./Components/GodsList";
-import Home from "./Components/Home";
+import GetADuck from "./Components/RandomDuck";
+//data
+import { GodsArray } from "./data/InternalData";
+//images
+import Home from "./Pages/Home";
 import hermes from "./Images/hermes.gif";
 //CSS
 import "./App.css";
-import GetADuck from "./Components/RandomDuck";
-import GodCard from "./Components/GodCard";
+import { colors } from "./utils/colors";
 
 class App extends React.Component {
   constructor() {
@@ -30,9 +31,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // const headers = {
-    //   'Content-Type': 'text/plain'
-    // };
     const url =
       "https://8ball.delegator.com/magic/JSON/Will%20my%20prayer%20be%20answered?";
 
@@ -103,13 +101,13 @@ class App extends React.Component {
         <div
           className="App"
           style={{
-            backgroundColor: this.state.loading ? "#231f20" : "",
+            backgroundColor: this.state.loading ? `${colors.loader}` : "",
             height: "100vh",
           }}
         >
           {/* <GodsList godattributes={this.state.data} /> */}
           {this.state.loading ? (
-            <img src={hermes} />
+            <img src={hermes} alt="loading..." />
           ) : (
             <>
               <Route
