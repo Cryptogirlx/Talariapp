@@ -1,51 +1,13 @@
 import styled from "styled-components";
-
 import { Link } from "react-router-dom";
+import { Button } from "./Buttons";
+import { Description, Powers, Title } from "./Typography";
 
 function GodPage(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  const Input = styled.input`
-    font-family: cinzel;
-    font-weight: bolder;
-    font-size: 16px;
-    background: #9effea;
-    border: none;
-    margin-top: 16px;
-    padding: 8px 16px;
-    color: #1f2322;
-    border: solid 1px #9effea;
-    &:hover {
-      background-color: transparent;
-      border: solid 1px #9effea;
-      color: #9effea;
-    }
-    &:focus {
-      outline: none;
-    }
-  `;
-  const H2 = styled.h2`
-    font-family: cinzel;
-    font-size: 44px;
-    letter-spacing: 0.16px;
-    margin: auto;
-    text-align: center;
-    color: #9effea;
-  `;
-
-  const Description = styled.p`
-    max-width: 450px;
-    margin: auto;
-    font-family: raleway;
-  `;
-  const Powers = styled.p`
-    max-width: 450px;
-    margin: 16px auto;
-    font-family: raleway;
-    font-weight: 700;
-  `;
   const GodForm = styled.form`
     margin: 24px auto 0;
     width: 100%;
@@ -59,7 +21,7 @@ function GodPage(props) {
   `;
   const FormInputs = styled.input`
     background-color: transparent;
-    font-family: raleway;
+
     font-weight: 500;
     letter-spacing: 0.2px;
     color: #fff;
@@ -94,10 +56,10 @@ function GodPage(props) {
 
   return (
     <>
-      <H2>{props.god.name}</H2>
+      <Title>{props.god.name}</Title>
       <hr style={{ width: "20%" }} />
       <Powers>{props.god.power}</Powers>
-      <Description>{props.god.Description}</Description>
+      <Description>{props.god.description}</Description>
       <GodForm onSubmit={handleSubmit}>
         <FormLabels>
           Name:
@@ -123,7 +85,11 @@ function GodPage(props) {
 
         <Link to="/ducksess">
           {" "}
-          <Input type="submit" value="Submit and request Sacrifice" />{" "}
+          <Button
+            modifiers={["opposite"]}
+            type="submit"
+            value="Submit and request Sacrifice"
+          />{" "}
         </Link>
       </GodForm>
     </>

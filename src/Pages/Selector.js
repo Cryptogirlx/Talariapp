@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Select from "react-select";
-import { GodsArray } from "./InternalData";
+import { GodsArray } from "../data/InternalData";
 import GodsList from "../Components/GodsList";
+import { colors } from "../utils/colors";
 
-const options = [
+const selectOptions = [
   { value: "war", label: "war" },
   { value: "crafts", label: "crafts" },
   { value: "wisdom", label: "wisdom" },
@@ -60,8 +61,8 @@ function dynamicSort(property) {
   };
 }
 
-let optionsSorted = options.sort(dynamicSort("label"));
-console.log("options", optionsSorted);
+let optionsSorted = selectOptions.sort(dynamicSort("label"));
+//console.log("options", optionsSorted);
 
 //console.log("gods", GodsArray)
 
@@ -96,19 +97,19 @@ class Selector extends React.Component {
       letter-spacing: 0.16px;
       margin: 24px auto 10px;
       text-align: center;
-      color: #9effea;
+      color: ${colors.green};
     `;
 
     const colourStyles = {
       option: (styles) => {
         return {
           ...styles,
-          color: "white",
+          color: `${colors.light}`,
         };
       },
     };
     return (
-      <div style={{ backgroundColor: "#131515", height: "100%" }}>
+      <div style={{ backgroundColor: `${colors.normalBg}`, height: "100%" }}>
         <H2>What do you need help with?</H2>
         <form>
           <div style={{ width: "30%", margin: "auto" }}>
@@ -121,11 +122,11 @@ class Selector extends React.Component {
                 colors: {
                   ...theme.colors,
                   primary: "gray",
-                  neutral0: "#131515", //bg
+                  neutral0: `${colors.normalBg}`, //bg
                   neutral20: "lightgray", //farme
                   primary25: "#474747", //hover
                   neutral80: "gray", //text in the select
-                  primary50: "#9effea", //down
+                  primary50: `${colors.green}`, //down
                   neutral50: "gray", //  text not actoive inside
                   neutral60: "gray", //V
                   neutral40: "lightgray", //some kindof click on V

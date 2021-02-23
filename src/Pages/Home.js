@@ -1,43 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import bg from "../Images/bg.png";
-
+import { colors } from "../utils/colors";
 import styled from "styled-components";
+import { Button } from "../Components/Buttons";
+import { MainTitle } from "../Components/Typography";
 
 const Description = styled.div`
   margin-bottom: 90px;
 `;
-const Title = styled.h1`
-  font-family: cinzel;
-  border-bottom: solid 1px #9effea;
-  padding: 0 30px;
-  font-size: 58px;
-  margin: 0 auto;
-`;
-
-const Button = styled.input`
-  font-family: cinzel;
-  font-weight: bolder;
-  font-size: 16px;
-  background-color: transparent;
-  border: none;
-  margin-top: 16px;
-  padding: 8px 16px;
-  cursor: pointer;
-  color: #9effea;
-  border: solid 1px #9effea;
-  &:hover {
-    background: #9effea;
-    border: solid 1px #9effea;
-    color: #1f2322;
-  }
-  &:focus {
-    outline: none;
-  }
-`;
 
 const HomeBgWrap = styled.div`
-  background-color: #100019;
+  background-color: ${colors.homeBg};
   height: 100vh;
   color: white;
   background-image: url(${bg});
@@ -47,7 +21,6 @@ const HomeBgWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  //align-items: flex-end;
 `;
 
 const Li = styled.li`
@@ -58,7 +31,7 @@ export class Home extends Component {
   render() {
     return (
       <HomeBgWrap>
-        <Title>TalariApp</Title>
+        <MainTitle>TalariApp</MainTitle>
         <Description>
           <h2 style={{ margin: "13px auto 20px auto" }}>
             Making a request to the gods is easier than ever!

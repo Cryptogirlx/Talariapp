@@ -1,50 +1,44 @@
-import React from 'react';
-import styled from 'styled-components';
-import App from '../App';
-import '../index.css'
+import React from "react";
+import styled from "styled-components";
+import "../index.css";
+import { colors } from "../utils/colors";
+import { Title } from "./Typography";
 
+function GetADuck(props) {
+  const StyleDiv = styled.div`
+    background-color: ${colors.normalBg};
+    color: ${colors.light};
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+  `;
 
+  //   const H3 = styled.h3`
+  //     font-family: cinzel;
+  //     font-size: 50px;
+  //     letter-spacing: 0.16px;
+  //     margin: 20% auto 0px;
+  //     text-align: center;
+  //     color: #9effea;
+  //   `;
 
-function GetADuck(props){
-
-    const StyleDiv= styled.div`
-    background-color: #131515;
-    color: #fff;`
-    
-
-    const H3 = styled.h3`
-    font-family: cinzel;
-    font-size: 50px;
-    letter-spacing: 0.16px;
-    margin: 24px auto 0px;
-    text-align: center;
-    color: #9EFFEA;
-`
-    const SubTitle = styled.p`
+  const RuningText = styled.p`
     max-width: 450px;
-    margin: 16px auto;
+    margin: auto;
     font-family: raleway;
-    font-weight: 700;
-    `
+    font-size: 23px;
+  `;
 
-    const RuningText = styled.p`
-        max-width: 450px;
-        margin: auto;
-        font-family: raleway;
-        font-size: 23px
-    `
-    console.log("goat?", props)
+  return (
+    <StyleDiv>
+      <Title>
+        Congrats, your request has been heard by the gods, and they have
+        replied:{" "}
+      </Title>
 
-    return(
-        <StyleDiv>
-            <H3>Congrats, you successfully sacrificed this duck... </H3>
-            <br></br>
-            <RuningText>Our collegues are working very hard to deliver your request to Mount Olympus.</RuningText>
-            <br></br>
-            <img width="500px" src={props.randomimg} />
-         
-        </StyleDiv>
-    )
+      <RuningText>"{props.answer.magic.answer}."</RuningText>
+    </StyleDiv>
+  );
 }
 
 export default GetADuck;

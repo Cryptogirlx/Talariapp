@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { colors } from "../utils/colors";
 import GodCard from "./GodCard";
 
 function GodsList(props) {
@@ -7,7 +8,7 @@ function GodsList(props) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #131515;
+    background-color: ${colors.normalBg};
   `;
 
   return (

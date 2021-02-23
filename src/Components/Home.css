@@ -1,0 +1,26 @@
+.container p {
+  text-align: center;
+  height: 100%;
+  font-family: cinzel;
+}
+.Container {
+  background-color: black;
+  height: 100vh;
+  color: white;
+  background-image: url("../Images/Moirai.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  align-content: flex-end;
+}
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: aquamarine;
+}
